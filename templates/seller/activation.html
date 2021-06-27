@@ -1,0 +1,53 @@
+{% extends "seller/base1.html" %}
+
+{% block content %}
+	<!-- main content start-->
+	<div id="page-wrapper">
+		<div class="main-page signup-page">
+			<h2 class="title1">Seller Account Activation</h2>
+			<div class="sign-up-row widget-shadow">
+				<h5>Personal Information :</h5>
+				<form action="#" method="post">
+					{% csrf_token %}
+					<div class="sign-u">
+						<input type="text" name="firstname" placeholder="First Name" required="">
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<input type="text" name="lastname" placeholder="Last Name" required="">
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<input type="text" name="shop" placeholder="Shop Name" required="">
+						<div class="clearfix"> </div>
+					</div>
+					<h6>Shop Information :</h6>
+					<div class="sign-u">
+						<input type="time" name="start_time" placeholder="Opening_Time" required="">
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<input type="time" name="end_time" placeholder="Closing_Time" required="">
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sign-u">
+						<select name="off_days" placeholder="Week Offs" multiple>
+							<option value="monday">Monday</option>
+							<option value="tuesday">Tuesday</option>
+							<option value="wednesday">Wednesday</option>
+							<option value="thursday">Thursday</option>
+							<option value="friday">Friday</option>
+							<option value="satday">Saturday</option>
+							<option value="sunday">Sunday</option>
+						</select>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="sub_home">
+							<input type="submit" value="Submit">
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
