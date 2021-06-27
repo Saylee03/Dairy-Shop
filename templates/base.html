@@ -62,15 +62,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="col-md-3 top-info-cart text-right mt-lg-4">
 					<ul class="cart-inner-info">
-						{% if not user %}
+						{% if user.is_authenticated %}
+						welcome {{user}} <a class="btn btn-primary" href="/logout">logout</a>
+						{%else%}
 						<li class="button-log">
 							<a class="btn-open" href="#">
 								<span class="fa fa-user" aria-hidden="true"></span>
 							</a>
 						</li>
-						{%else%}
-						welcome {{user}} <a class="btn btn-primary" href="/logout">logout</a>
-
 						{%endif%}
 						<li class="galssescart galssescart2 cart cart box_1">
 							<form action="#" method="post" class="last">
