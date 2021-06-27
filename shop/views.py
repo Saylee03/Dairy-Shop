@@ -6,11 +6,10 @@ from django.contrib.auth import authenticate, login, logout
 def index(request):
     products = Product.objects.all()
     context={
-        "user":None
+        "products":products
     }
     return render(request, "index.html",context)
  
-
 
 def about(request):
     return render(request, "about.html")
@@ -33,8 +32,10 @@ def payment(request):
 
 
 def shop(request):
-
-    return render(request, "shop.html")
+    context={
+        "user":None
+    }
+    return render(request, "index.html",context)
 
 
 def single(request):
@@ -153,7 +154,7 @@ def seller_login(request):
         return render(request, "seller/login.html")
 
 
-def my_view(request):
+def login_view(request):
     username = request.POST['login']
     password = request.POST['password']
     user = authenticate(request, username=username, password=password)
