@@ -19,6 +19,13 @@ secret key = q3lcQCcN7mb5rjNkYKRGcQcx
 from pathlib import Path
 import os
 
+import environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env(".env")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -159,8 +166,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': '416529487699-s351se178fi2qjjb865h0lgabc2s4nke.apps.googleusercontent.com',
-            'secret': 'q3lcQCcN7mb5rjNkYKRGcQcx',
+            'client_id': os.environ.get("GOOGLE_CLIENT_ID"),
+            'secret': os.environ.get("GOOGLE_SECRET_KEY"),
             'key': ''
         }
     }
@@ -170,9 +177,8 @@ SOCIALACCOUNT_PROVIDERS = {
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'testsite_app'
-EMAIL_HOST_PASSWORD = 'mys3cr3tp4ssw0rd'
+EMAIL_HOST_USER = os.environ.get("USER_EMAIL")
+EMAIL_HOST_PASSWORD = os.environ.get("USER_PASS")
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'
