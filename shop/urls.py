@@ -12,6 +12,6 @@ urlpatterns = [
     path("payment/", views.payment, name="payment"),
     path("shop/", views.shop, name="shop"),
     path("single/", views.single, name="single"),
-    path("login/", views.my_view,name="login"),
+    path("login/", views.login_view,name="login"),
     path("logout/",views.logout_view,name="logout")
 ]
